@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <%- include('../partials/header.ejs') %>
+
+    
+    <main class="create-form">
+
+        <h4>Registrar Compra</h4>
+
+        <form action="/admin/compras/registrar" method="POST" class="row">
+
+            <div class="first_group col-6">
+
+                <div class="form-group cuil-group">
+                    <label for="cuit">CUIT</label>
+                    <input type="number" name="cuit" placeholder="CUIT" value="<%= (typeof old == 'undefined') ? '':(typeof old.cuit != 'undefined') ? old.cuit:'' %>" >
+                    <% if(typeof errors != 'undefined'){ %>
+                        <% if(typeof errors.cuit != 'undefined'){ %>
+                            <small><%= errors.cuit.msg %></small>
+                        <% } %>
+                    <% } %>
+                </div>
+
+                <div class="form-group razon-group">
+                    <label for="razon">Razon Social</label>
+                    <input type="text" name="razon" placeholder="Razon Social" value="<%= (typeof old == 'undefined') ? '':(typeof old.razon != 'undefined') ? old.razon:'' %>" >
+                    <% if(typeof errors != 'undefined'){ %>
+                        <% if(typeof errors.razon != 'undefined'){ %>
+                            <small><%= errors.razon.msg %></small>
+                        <% } %>
+                    <% } %>
+                </div>
+             
+            
+                <div class="form-group fecha-group">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" name="fecha" placeholder="Fecha" value="<%= (typeof old == 'undefined') ? '':(typeof old.fecha != 'undefined') ? old.fecha:'' %>" >
+                    <% if(typeof errors != 'undefined'){ %>
+                        <% if(typeof errors.fecha != 'undefined'){ %>
+                            <small><%= errors.fecha.msg %></small>
+                        <% } %>
+                    <% } %>
+                </div>
+                    
+                <div class="form-group detalle-group">
+                    <label for="detalle">Detalle</label>
+                    <input type="text" name="detalle" placeholder="Detalle" value="<%= (typeof old == 'undefined') ? '':(typeof old.detalle != 'undefined') ? old.detalle:'' %>">
+                </div> 
+
+            </div>
+            <div class="col-6">
+
+                
+                <div class="form-group numero_cbte-group">
+                    <label for="numero_cbte">Numero de Comprobante</label>
+                    <input type="number" name="numero_cbte" placeholder="Numero de Comprobante" value="<%= (typeof old == 'undefined') ? '':(typeof old.numero_cbte != 'undefined') ? old.numero_cbte:'' %>" >
+                    <% if(typeof errors != 'undefined'){ %>
+                        <% if(typeof errors.numero_cbte != 'undefined'){ %>
+                            <small><%= errors.numero_cbte.msg %></small>
+                        <% } %>
+                    <% } %>
+                </div>
+                        
+                <div class="form-group tipo_cbte-group">
+                    <label for="tipo_cbte">Tipo de Comprobante</label>
+                    <select name="tipo_cbte" id="tipo_cbte">
+                        <option value="" hidden>Seleccione Tipo de Comprobante</option>
+                        <% for(let i = 0; i < tipocbte.length; i++){ %>
+                            <option value="<%=tipocbte[i].id%>" <%=(typeof old == 'undefined') ? '':(tipocbte[i].id == old.tipo_cbte) ? 'selected' : '' %> ><%=tipocbte[i].descripcion%></option>
+                        <% } %>
+                    </select>
+                    <% if(typeof errors != 'undefined'){ %>
+                        <% if(typeof errors.tipo_cbte != 'undefined'){ %>
+                            <small><%= errors.tipo_cbte.msg %></small>
+                        <% } %>
+                    <% } %>
+                </div>
+                    
+                <div class="form-group monto-group">
+                    <label for="monto_neto">Monto Neto</label>
+                    <div class="span">
+                        <span class="price-icon"></span>
+                        <input type="number" name="monto_neto" placeholder="Monto" class="small_input" id="monto_neto" value="<%= (typeof old == 'undefined') ? '':(typeof old.monto_neto != 'undefined') ? old.monto_neto:'' %>">
+                    </div>
+                    <% if(typeof errors != 'undefined'){ %>
+                        <% if(typeof errors.monto_neto != 'undefined'){ %>
+                            <small><%= errors.monto_neto.msg %></small>
+                        <% } %>
+                    <% } %>
+                </div>
+                    
+                <div class="form-group iva-group">
+                    <div class="first-group">
+                        <label for="iva">IVA</label>
+                        <input type="number" name="iva" placeholder="IVA" class="small_input" id="iva" value="<%= (typeof old == 'undefined') ? '':(typeof old.iva != 'undefined') ? old.iva:'' %>" >
+                        <p class="after">%</p>                                   
+                        <% if(typeof errors != 'undefined'){ %>
+                            <% if(typeof errors.iva != 'undefined'){ %>
+                                <small><%= errors.iva.msg %></small>
+                            <% } %>
+                        <% } %>
+                    </div>
+                    <div class="second-group">
+                        <label for="iva_monto">IVA Monto</label>
+                        <p class="before">$</p>
+                        <input type="number" name="iva_monto" placeholder="Total" class="small_input" id="iva_monto" value="<%= (typeof old == 'undefined') ? '':(typeof old.iva_monto != 'undefined') ? old.iva_monto:'' %>" disabled>
+                        <% if(typeof errors != 'undefined'){ %>
+                            <% if(typeof errors.iva_monto != 'undefined'){ %>
+                                <small><%= errors.iva_monto.msg %></small>
+                            <% } %>
+                        <% } %>
+                    </div>            
+                </div>
+                    
+                <div class="form-group retencion-group">
+                    <div class="first-group">
+                        <label for="retencion">Retención</label>
+                        <input type="number" name="retencion" placeholder="Retención" class="small_input" id="retencion" value="<%= (typeof old == 'undefined') ? '':(typeof old.retencion != 'undefined') ? old.retencion:'' %>" >
+                        <p class="after">%</p>
+                        <% if(typeof errors != 'undefined'){ %>
+                            <% if(typeof errors.retencion != 'undefined'){ %>
+                                <small><%= errors.retencion.msg %></small>
+                            <% } %>
+                        <% } %>
+                    </div>
+                    <div class="second-group">
+                        <label for="retencion_monto">Retención Monto</label>
+                        <p class="before">$</p>
+                        <input type="number" name="retencion_monto" placeholder="Retención" class="small_input" id="retencion_monto" value="<%= (typeof old == 'undefined') ? '':(typeof old.retencion_monto != 'undefined') ? old.retencion_monto:'' %>" disabled>
+                        <% if(typeof errors != 'undefined'){ %>
+                            <% if(typeof errors.retencion_monto != 'undefined'){ %>
+                                <small><%= errors.retencion_monto.msg %></small>
+                            <% } %>
+                        <% } %>
+                    </div>
+                </div>
+             
+            </div>
+
+                                
+            <div class="form-group button-group">
+                <button type="submit">Crear</button>
+            </div>
+
+        </form>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+                            
+    <script src="/js/compras.js"></script>
+
+</body>
+</html>

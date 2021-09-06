@@ -1,0 +1,852 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css');
+@import url('https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css');
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+/**************************************************************************************/
+/******************************HEADER**************************************************/
+/**************************************************************************************/
+
+
+header {
+    height: 100px;
+    padding:  0px 50px;
+    color: #fff;
+    background-color: #0d4d8b;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .leftMenu {
+    display: flex;
+    align-items: center;
+}
+
+header .leftMenu .image {
+    width: 100px;
+    height: 100px;
+}
+
+header .leftMenu .image a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+header .leftMenu .image a img {
+    width: 100%;
+    height: 100%;
+}
+
+header .leftMenu .titulo {
+    margin-left: 25px;
+    text-align: center;
+}
+
+header .leftMenu .divNav {
+    text-align: center;
+    margin-left: 20px;
+}
+
+header .leftMenu .divNav nav ul {
+    margin-bottom: 0;
+}
+
+header .leftMenu .divNav nav ul li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+header .leftMenu .divNav nav ul li.menuButton {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+header .leftMenu .divNav nav ul li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 7px;
+}
+
+header .leftMenu .divNav nav ul li a.menuButton:hover {
+    border-bottom: #fff solid 2px;
+    padding-bottom: 5px;
+}
+
+header .leftMenu .divNav nav ul li ul{
+    display: none;
+    position: absolute;
+    text-align: left;
+    background-color: #0d4d8b;
+}
+
+header .leftMenu .divNav nav ul li ul li {
+    display: block;
+    margin-top: 5px;
+    margin-left: 0;
+    width: 175px;
+}
+
+header .leftMenu .divNav nav ul li:hover ul {
+    display: block;
+}
+
+header .leftMenu .divNav nav ul li ul li:hover {
+    background-color: rgb(42, 109, 177);
+}
+
+header .rigthMenu .login {
+    display: none;
+    /*display: flex;*/
+    justify-content: end;
+    margin-right: 35px;
+}
+
+
+header .rigthMenu .login .singIn {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background-color: #0d4d8b;
+    color: #fff;
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-size: 17px;
+    border: #fff solid 2px;
+}
+
+header .rigthMenu .login .singIn:hover {
+    background-color: #fff;
+    color: #0d4d8b;
+}
+
+/*header .rigthMenu .login ul {
+    margin-bottom: 0;
+}
+
+header .rigthMenu .login ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+header .rigthMenu .login ul li a {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+    color: #0d4d8b;
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-size: 17px;
+    border: #fff solid 2px;
+}
+
+header .rigthMenu .login ul li a.register {
+    background-color: #0d4d8b;
+    color: #fff;
+}
+
+header .rigthMenu .login ul li a:hover {
+    background-color: #0d4d8b;
+    color: #fff;
+}
+
+header .rigthMenu .login ul li a.register:hover {
+    background-color: #fff;
+    color: #0d4d8b;
+}
+*/
+
+header .rigthMenu .userOptions {
+    /*display: none;*/
+    display: flex;
+    flex-direction: column;
+}
+
+
+header .rigthMenu .userOptions .visible{
+    background-color: #fff;
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 35px;
+    cursor: pointer;
+}
+
+header .rigthMenu .userOptions .avatar {
+    width: 25px;
+    border-radius: 25px;
+}
+
+header .rigthMenu .userOptions .avatar img {
+    width: 100%;
+    border-radius: 25px;
+}
+
+header .rigthMenu .userOptions p{
+    margin: 0px 10px;
+}
+
+header .rigthMenu .userOptions .desplegable {
+    display: none;
+}
+
+header .rigthMenu .userOptions:hover .desplegable {
+    display: block;
+}
+
+header .rigthMenu .userOptions ul {
+    position: absolute;
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+header .rigthMenu .userOptions ul li {
+    border-bottom: #f2f2f2 solid 1px;
+    list-style: none;
+}
+
+header .rigthMenu .userOptions ul li:hover {
+    background-color: #f2f2f2;
+}
+
+header .rigthMenu .userOptions ul li:first-child:hover{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+header .rigthMenu .userOptions ul li:last-child:hover{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+header .rigthMenu .userOptions ul li a {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/**********************************************************************************/
+/*****************************BODY*************************************************/
+/**********************************************************************************/
+
+small {
+    color: red;
+    display: block;
+    margin-top: 3px;
+}
+
+
+/*************************SECCION TABLAS*******************************************/
+
+
+main .tableSection {
+    margin: 50px 20px;
+    background-color: #fbfbfb;
+    padding: 30px 50px;
+    border-radius: 20px;
+}
+
+main .tableSection h3 {
+    font-size: 26px;
+    margin-bottom: 35px;
+}
+
+main .tableSection table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    min-width: 500px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+main .tableSection .table .dataTables_wrapper .row {
+    margin-bottom: 5px;
+    align-items: center;
+}
+
+main .tableSection table thead tr {
+    color: #fff;
+    background-color: #0d4d8b;
+    font-weight: bold;
+}
+
+main .tableSection table th,
+main .tableSection table td {
+    padding: 12px 15px;
+}
+
+main .tableSection table tbody tr {
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+main .tableSection table tbody tr:nth-of-type(even){
+    background-color: #f2f2f2;
+}
+
+main .tableSection table tbody tr:last-of-type{
+    border-bottom: 2px solid #0d4d8b;
+}
+
+main .tableSection table tbody tr a {
+    color: #000;
+}
+
+main .tableSection table tbody tr a:hover i.fa-edit {
+    color:#0d4d8b;
+}
+
+main .tableSection table tbody tr td form button {
+    background: none;
+    border: none;
+    color: #000;
+}
+
+main .tableSection table tbody tr td form button:hover i.fa-trash-alt {
+    color:#ff0000e5;
+}
+
+main .tableSection .table div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0px;
+}
+
+main .tableSection .crearNuevo {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: #0d4d8b;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+main .tableSection .crearNuevo:hover {
+    background-color: rgb(42, 109, 177);
+}
+
+
+/***************************SECCION LOGIN*********************************************/
+
+main.login,
+main.register {
+    text-align: center;
+}
+
+main .caja {
+    width: 400px;
+    display: inline-block;
+    text-align: center;
+    background-color: #fff;
+    margin-top: 75px;
+    margin-bottom:50px;
+    border-radius: 25px;
+    background-color: #f2f2f2;
+    padding: 20px 10px;
+    border: 5px solid #0d4d8b;
+    box-shadow: 13px 13px 20px #cbced1,
+                -13px -13px 20px #fff;
+}
+
+main .caja .boton{
+    width: 100%;
+
+}
+
+main .caja .boton a {
+    width: 225px;
+    display: inline-block;
+    padding: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    color: black;
+}
+
+main .caja .boton .crear{
+    border-bottom: 5px solid rgb(44, 44, 44);
+    opacity: 0.5;
+    border-top-right-radius: 10px;
+    background-color: gray;
+}
+
+main .caja .boton .crear:hover{
+    opacity: 1;
+    border-bottom: 5px solid #0d4d8b;
+    background-color: #fff;
+}
+
+
+main .caja .boton .ingresar{
+    border-bottom: 5px solid #0d4d8b;
+}
+
+main .caja .formulario {
+    margin: 15px 0;
+}
+
+main .caja .formulario h3 {
+    margin: 20px 0;
+}
+
+main .caja .formulario form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5%;
+}
+
+main .caja .formulario form .form-group {
+    width: 375px;
+}
+
+
+main .caja .formulario form .form-group .password-input {
+    position: relative;
+}
+
+main .caja .formulario form input {
+    width:90%;
+    margin-bottom: 5px;
+    padding: 10px 7px;
+    border-radius: 5px;
+    border:1px solid grey;
+}
+
+main .caja .formulario form .form-group small {
+    display: inline-block;
+}
+
+.eyeIcon.show::before{
+    content: '\f06e';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    right: 25px;
+    top: 10px;
+    color: #777;
+}
+
+.eyeIcon.hide::before{
+    content: '\f070';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    display: inline-block;
+    position: absolute;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    right: 25px;
+    top: 10px;
+    color: #777;
+}
+
+main .caja .formulario form button {
+    background-color: rgba(0, 8, 247, 0.64);
+    color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    width: 90%;
+    font-size: 20px;
+    border: none;
+    margin-top: 15px;
+}
+
+main .caja .formulario form button:hover {
+    background-color: rgba(0, 8, 247, 0.40);
+}
+
+main .caja p {
+    font-size: 16px;
+    padding-bottom: 15px;
+}
+
+main .caja p a{
+    text-decoration: none;
+}
+
+/*******************CAMBIO CONTRASEÑA**************************/
+
+main .caja .formulario form .actual-password {
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid#cacaca;
+}
+
+
+/********************************REGISTER*****************************************/
+/********************************REGISTER*****************************************/
+/********************************REGISTER*****************************************/
+/********************************REGISTER*****************************************/
+/********************************REGISTER*****************************************/
+
+main.create-form {
+    background-color: #b8c8da;
+    margin:50px 75px;
+    padding: 50px;
+    border-radius: 50px;
+    border: 5px solid #0d4d8b;
+}
+
+main.create-form h4 {
+    margin-bottom: 35px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+/*main.create-form form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+}*/
+
+main.create-form form .form-group {
+    /*width: 49%;
+    display: flex;
+    flex-direction: column;*/
+    padding: 10px 20px;
+}
+
+main.create-form form .form-group label {
+    font-weight: 500;
+    display: block;
+}
+
+main.create-form form .password-group {
+    width:98%;
+    display: flex;
+}
+
+main.create-form form .password-group .first-password {
+    width: 49.5%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+main.create-form form .password-group .repeat-password {
+    width: 49.5%;
+    display: flex;
+    flex-direction: column;
+}
+
+main.create-form form .monto-group .span,
+main.create-form form .presupuesto-group .span {
+    position: relative;
+}
+
+.price-icon::before{
+    content: '\f155';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    left: 8px;
+    bottom: 1px;
+    color: #777;
+}
+
+main.create-form form .monto-group input,
+main.create-form form .presupuesto-group input {
+    padding-left: 20px;
+}
+
+main.create-form form .iva-group,
+main.create-form form .retencion-group {
+    display: flex;
+}
+
+main.create-form form .iva-group .first-group,
+main.create-form form .retencion-group .first-group {
+    margin-right: 30px;
+}
+
+main.create-form form .button-group {
+    width:98%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+main.create-form form input {
+    width: 350px;
+    margin: 0;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #0d4d8b;
+}
+
+main.create-form form input.small_input {
+    width: 100px;
+}
+
+main.create-form form input:focus {
+    border: 2px solid #0d4d8b;
+} 
+
+main.create-form form select {
+    width: 350px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #0d4d8b;
+}
+
+main.create-form form select:focus {
+    border: 2px solid #0d4d8b;
+}
+
+main.create-form form button {
+    width:350px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #0d4d8b;
+    color: #fff;
+    outline: none;
+    border-radius: 25px;
+    outline: none;
+    border: 0;
+    font-size: 20px;
+}
+
+main.create-form form button:hover {
+    background-color: rgba(13, 77  , 139, 0.5);
+}
+
+main.create-form form p {
+    display: inline-block;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+main.create-form form p.before {
+    margin-right: 5px;
+}
+
+main.create-form form p.after {
+    margin-left: 3px;
+    font-weight: bold;
+}
+
+
+/********************************REGISTER*****************************************/
+/********************************REGISTER*****************************************/
+/********************************REGISTER*****************************************/
+/********************************REGISTER*****************************************/
+/********************************REGISTER*****************************************/
+
+
+
+
+
+/********************************MAIN*****************************************/
+/********************************MAIN*****************************************/
+/********************************MAIN*****************************************/
+/********************************MAIN*****************************************/
+
+
+main.main {
+    padding-top: 30px;
+}
+
+main.main h5 {
+    text-align: center;
+    font-size: 64px;
+    margin: 20px 0;
+    color: #0d4d8b;
+}
+
+main.main .welcome {
+    padding: 20px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main.main .welcome .box {
+    width: 35%;
+    display: inline-block;
+    border-radius: 25px;
+    box-shadow: 0 0 15px 0 rgb( 0, 0, 0, 0.1);
+    margin: 25px;
+    transition-duration: 300ms;
+    
+}
+
+main.main .welcome .box:hover {
+    transform: scale(1.1);
+}
+
+main.main .welcome .box a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    font-size: 40px;
+    padding: 25px;
+    background-color: rgba(13, 77  , 139, 1);
+    transition-duration: 300ms;
+}
+
+main.main .welcome .box a:hover {
+    background-color: rgba(13, 77  , 139, 0.75);
+}
+
+main.main .welcome .box a i {
+    font-size: 45px;
+}
+
+
+
+
+
+
+
+
+/************************************************************************/
+/*************************FOOTER*****************************************/
+/************************************************************************/
+
+footer {
+    background-color: #0d4d8b;
+    padding: 10px 50px 10px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer .opciones nav ul{
+    margin-bottom: 0;
+}
+
+footer .opciones nav ul li {
+    display: block;
+}
+
+footer .opciones nav ul li a {
+    color: #cacaca;
+    text-decoration: none;
+}
+
+footer .opciones nav ul li a:hover {
+    color: #fff;
+}
+
+footer .autor p {
+    color: #cacaca;
+    margin-bottom: 0;
+}
+
+footer .redes p {
+    font-size: 18px;
+    color: #cacaca;
+    margin-bottom: 0px;
+}
+
+footer .redes ul{
+    text-align: center;
+    color: #cacaca;
+    margin-bottom: 0;
+}
+
+footer .redes ul li {
+    display: inline-block;
+    margin: 0 7px;
+    font-size: 20px;
+}
+
+footer .redes ul li a {
+    color: #cacaca;
+}
+
+footer .redes ul li a:hover {
+    color: #fff;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************************************************************************/
+/************************RESPONSIVE***********************************************/
+/*********************************************************************************/
+
+@media (max-width:900px){
+
+    header {
+        padding: 0px 20px;
+    }
+
+    header .leftMenu .divNav {
+        margin-left: 15px;
+    }
+    
+    header .leftMenu .divNav nav ul li {
+
+        margin-left: 10px;
+    }
+    
+    header .leftMenu .divNav nav ul li a {
+        display: inline-block;
+        font-size: 16px;
+
+    }
+    
+    header .rigthMenu .login {
+        margin-right: 5px;
+    }
+    
+    header .rigthMenu .login ul li a {
+        padding: 6px 12px;
+        font-size: 15px;
+    }
+ 
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <%- include('partials/header.ejs') %>
+
+    <main class="main">
+
+        <h5 class="titulo">Hola, <%=hayUnUsuario.usuario%> </h5>
+
+        <div class="welcome">
+            <div class="box">
+                <a href="/admin/clientes">
+                    <p class="titulo">CLIENTES</p>
+                    <i class="fas fa-users"></i>
+                </a>
+            </div>
+            <div class="box">
+                <a href="/admin/users">
+                    <p class="titulo">TÉCNICOS</p>
+                    <i class="fas fa-tools"></i>
+                </a>
+            </div>
+            <div class="box">
+                <a href="">
+                    <p class="titulo">COMPROBANTES</p>
+                    <i class="fas fa-book"></i>
+                </a>
+            </div>
+            <div class="box">
+                <a href="/admin/tareas">
+                    <p class="titulo">TAREAS</p>
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </a>
+            </div>
+            <div class="box">
+                <a href="/admin/compras">
+                    <p class="titulo">COMPRAS</p>
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+            <div class="box">
+                <a href="">
+                    <p class="titulo">PAGOS</p>
+                    <i class="fas fa-receipt"></i>
+                </a>
+            </div>
+        </div>
+
+    </main>
+    
+    <%- include('partials/footer.ejs') %>
+
+</body>
+</html>

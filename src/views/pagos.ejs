@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <%- include('../partials/header.ejs') %>
+
+    <main class="create-form">
+
+        <h4>Registrar Pagos</h4>
+
+        <form action="">
+
+            <div class="form-group cliente-group">
+                <label for="cliente">Cliente</label>
+                <select name="cliente" id="cliente">
+                    <option value="" hidden>Seleccione Cliente</option>
+                    <option value="">Cliente 1</option>
+                    <option value="">Cliente 2</option>
+                    <option value="">Cliente 2</option>
+                </select>
+            </div>
+            <div class="form-group admin-group">
+                <label for="abono">Abono</label>
+                <select name="abono" id="abono">
+                    <option value="0">Super Admin</option>
+                    <option value="2">Tecnico</option>
+                </select>
+            </div>
+            <div class="form-group fecha-group">
+                <label for="fecha">Fecha</label>
+                <input type="date" name="fecha" placeholder="Fecha">
+            </div>
+            <div class="form-group monto-group">
+                <label for="monto">Monto</label>
+                <p>$</p>
+                <input type="number" name="monto" placeholder="Monto" id="monto">
+            </div>
+            <div class="form-group observaciones-group">
+                <label for="observaciones">Observaciones</label>
+                <input type="text" name="observaciones" placeholder="Observaciones">
+            </div>
+            <div class="form-group button-group">
+                <button type="submit">Crear</button>
+            </div>
+
+        </form>
+    </main>
+
+
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>

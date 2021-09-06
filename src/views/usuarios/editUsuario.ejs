@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <%- include('../partials/header.ejs') %>
+
+    <main class="create-form">
+
+        <h4>Crear Nuevo Usuario</h4>
+
+        <form action="/users/edit/<%=hayUnUsuario.id%>?_method=PUT" method="POST">
+
+            <div class="form-group name-group">
+                <label for="name">Nombre de Usuario</label>
+                <input type="text" name="name" id="name" placeholder="Nombre" value="<%=(typeof old == 'undefined') ? hayUnUsuario.usuario:(typeof old.name != 'undefined') ? old.name:hayUnUsuario.usuario %>">
+                <% if(typeof errors != 'undefined'){ %>
+                    <% if(typeof errors.name != 'undefined'){ %>
+                        <small><%= errors.name.msg %></small>
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="form-group cuil-group">
+                <label for="cuil">CUIL</label>
+                <input type="number" name="cuil" placeholder="CUIL" value="<%=(typeof old == 'undefined') ? hayUnUsuario.cuil:(typeof old.cuil != 'undefined') ? old.cuil:hayUnUsuario.cuil %>">
+                <% if(typeof errors != 'undefined'){ %>
+                    <% if(typeof errors.cuil != 'undefined'){ %>
+                        <small><%= errors.cuil.msg %></small>
+                    <% } %>
+                <% } %>
+            </div>   
+            <div class="form-group direccion-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" name="direccion" placeholder="Dirección" value="<%=(typeof old == 'undefined') ? hayUnUsuario.direccion:(typeof old.direccion != 'undefined') ? old.direccion:hayUnUsuario.direccion %>">
+            </div>
+            <div class="form-group localidad-group">
+                <label for="localidad">Localidad</label>
+                <input type="text" name="localidad" placeholder="Localidad" value="<%=(typeof old == 'undefined') ? hayUnUsuario.localidad:(typeof old.localidad != 'undefined') ? old.localidad:hayUnUsuario.localidad %>">
+            </div>
+            <div class="form-group codigopostal-group">
+                <label for="codigopostal">Codigo Postal</label>
+                <input type="number" name="codigopostal" placeholder="codigopostal" value="<%=(typeof old == 'undefined') ? hayUnUsuario.codigo_postal:(typeof old.codigopostal != 'undefined') ? old.codigopostal:hayUnUsuario.codigo_postal %>">
+            </div>
+            <div class="form-group provincia-group">
+                <label for="provincia">Provincia</label>
+                <select name="provincia" id="provincia">
+                <option value="" hidden>Seleccione Provincia</option>
+                <option value="Cordoba">Bs As</option>
+                <option value="Cordoba">Cordoba</option>
+                <option value="Cordoba">Sta Fe</option>
+                </select>
+            </div>
+            <div class="form-group telefono-group">
+                <label for="telefono">Teléfono</label>
+                <input type="number" name="telefono" placeholder="Teléfono" value="<%=(typeof old == 'undefined') ? hayUnUsuario.telefono:(typeof old.telefono != 'undefined') ? old.telefono:hayUnUsuario.telefono %>">
+            </div>
+            <div class="form-group mail-group">
+                <label for="mail">Email</label>
+                <input type="email" name="email" placeholder="Email" value="<%=(typeof old == 'undefined') ? hayUnUsuario.mail:(typeof old.email != 'undefined') ? old.email:hayUnUsuario.mail %>">
+                <% if(typeof errors != 'undefined'){ %>
+                    <% if(typeof errors.email != 'undefined'){ %>
+                        <small><%= errors.email.msg %></small>
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="form-group button-group">
+                <button type="submit">Guardar Cambios</button>
+            </div>
+
+        </form>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>
